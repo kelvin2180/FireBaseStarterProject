@@ -46,8 +46,10 @@ public class MainActivity extends AppCompatActivity
     protected void onStart() {
 
         super.onStart();
+        Intent intent = new Intent(MainActivity.this, MyService.class);
+        startService(intent);
 
-        textView = (TextView) findViewById(R.id.editText);
+        textView = (TextView) findViewById(R.id.textView);
         b1 = (Button)findViewById(R.id.button);
 
         mref = new Firebase("http://kchu-110.firebaseio.com/first");
@@ -75,8 +77,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
 
-        //Intent intent = new Intent(MainActivity.this, MyService.class);
-        //startService(intent);
+
     }
 
     public void submit(View button) {
@@ -111,5 +112,12 @@ public class MainActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void lab7(View view)
+    {
+
+        Intent intent = new Intent(MainActivity.this, MyService.class);
+        startService(intent);
     }
 }

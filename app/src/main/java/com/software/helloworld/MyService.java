@@ -18,6 +18,7 @@ public class MyService extends Service {
     Firebase mref2;
 
     public MyService() {
+
     }
 
     final class MyThread implements Runnable {
@@ -112,5 +113,7 @@ public class MyService extends Service {
         // TODO: Return the communication channel to the service.
         throw new UnsupportedOperationException("Not yet implemented");
     }
+
+ 
 }
 
