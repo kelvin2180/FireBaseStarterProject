@@ -54,7 +54,7 @@ public class MyService extends Service {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                mref2.setValue("1");
+                mref2.setValue("2");
             }
             stopSelf(startId);
 
@@ -84,11 +84,11 @@ public class MyService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Toast.makeText(MyService.this, "Sending message to user2", Toast.LENGTH_SHORT).show();
+        Toast.makeText(MyService.this, "Sending message to user1", Toast.LENGTH_SHORT).show();
 
         //b1 = (Button) findViewById(R.id.sendButton);
         //User1 Reading from /first
-        mref1 = new Firebase("https://kchu-110.firebaseio.com/first");
+        mref1 = new Firebase("https://kchu-110.firebaseio.com/second");
 
         mref1.addValueEventListener(new ValueEventListener() {
             @Override
@@ -102,7 +102,7 @@ public class MyService extends Service {
         });
 
         // Writing to /second
-        mref2 = new Firebase("https://kchu-110.firebaseio.com/second");
+        mref2 = new Firebase("https://kchu-110.firebaseio.com/first");
         Thread thread = new Thread(new MyThread(startId));
         thread.start();
         return super.onStartCommand(intent, flags, startId);

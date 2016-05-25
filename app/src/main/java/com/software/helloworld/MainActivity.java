@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity
         textView = (TextView) findViewById(R.id.textView);
         b1 = (Button)findViewById(R.id.button);
 
-        mref = new Firebase("http://kchu-110.firebaseio.com/first");
+        mref = new Firebase("http://kchu-110.firebaseio.com/second");
         mref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity
         b1.setOnClickListener(new View.OnClickListener()  {
             @Override
             public void onClick(View v){
-                mref = new Firebase("https://kchu-110.firebaseio.com/second");
+                mref = new Firebase("https://kchu-110.firebaseio.com/first");
                 EditText editText = (EditText) findViewById(R.id.editText);
                 String edit = editText.getText().toString();
                 mref.setValue(edit);
