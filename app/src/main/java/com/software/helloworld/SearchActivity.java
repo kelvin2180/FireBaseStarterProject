@@ -78,7 +78,6 @@ public class SearchActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-git
         return super.onOptionsItemSelected(item);
     }
 }
