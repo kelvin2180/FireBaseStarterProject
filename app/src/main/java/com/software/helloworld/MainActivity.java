@@ -9,6 +9,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.firebase.client.Firebase;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -34,10 +36,12 @@ public class MainActivity extends AppCompatActivity {
         EditText etId = (EditText) findViewById(R.id.EditTextId);
         String name = etName.getText().toString();
         String id = etId.getText().toString();
+        Firebase myFirebaseRef = new Firebase("https://kchu-110.firebaseio.com/student");
 
         Student student = new Student();
         student.setName(name);
         student.setStudentId(id);
+        myFirebaseRef.child(student.getStudentId()).setValue(student);
 
         Intent output = new Intent();
         setResult(RESULT_OK, output);
